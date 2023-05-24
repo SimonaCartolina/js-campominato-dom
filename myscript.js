@@ -1,6 +1,9 @@
 const playButton=document.querySelector('button');
 const gridElement= document.querySelector('div.grid');
 
+
+
+
 function createElement(tagName, className){
     const cellElement=document.createElement(tagName);
     cellElement.className+= className;
@@ -19,9 +22,15 @@ function createElement(tagName, className){
                 
                     gridElement.appendChild(actualCell);  
 
-                    actualCell.addEventListener('click', function() {
-                        actualCell.style.backgroundColor="red";
-                    })
+                    actualCell.addEventListener('click', function() {   
+                        
+                        if(actualCell=== getRandomValue()){
+                            actualCell.style.backgroundColor="red";
+                        }
+                            else{
+                                actualCell.style.backgroundColor="green";
+                            }
+                    });
 
 
                 };
@@ -44,26 +53,32 @@ function createElement(tagName, className){
                 });
 
 
-function uniqueNumber(max, min, elements){
+function uniqueNumber(minNumber, maxNumber, elements){
     let numberList=[];
 
-    if((16-1)<6){
+    if((100-1)<16){
         return[];
     }
 
     while(numberList.length<numberList){
-        const randomNumber= Math.floor(Math.random() * (16 - 1 + 1));
-        if(!numberList.includes(randomNumber)){
-            numberList.push(randomNumber);
+        const getNewRandomNumber= getRandomInt(1, 100);
+        if(!numberList.includes(getNewRandomNumber)){
+            numberList.push(getNewRandomNumber);
         }
     }
     return numberList;
 };
-console.log(uniqueNumber());
+function getRandomValue(minNumber, maxNumber){
+    const randomNumber= Math.floor(Math.random() * (100 - 1 + 1));
+    return randomNumber;
+};
+
 
 for(i=0; i<16; i++){
-    uniqueNumber(1, 16, 16);
-};
+console.log(getRandomValue(1,100,16));
+}
+
+
 
 
 
