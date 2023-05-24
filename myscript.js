@@ -44,22 +44,22 @@ function createElement(tagName, className){
                 });
 
 
-function uniqueNumber(min, max, elements){
-    const numberList=[];
+function uniqueNumber(max, min, elements){
+    let numberList=[];
 
-    if((max-min)<elements){
+    if((16-1)<6){
         return[];
     }
 
     while(numberList.length<numberList){
         const randomNumber= Math.floor(Math.random() * (16 - 1 + 1));
-        if(!numberList.includes(getNewRandomNumber)){
-            numberList.push(getNewRandomNumber);
+        if(!numberList.includes(randomNumber)){
+            numberList.push(randomNumber);
         }
     }
     return numberList;
 };
-console.log(uniqueNumber);
+console.log(uniqueNumber());
 
 for(i=0; i<16; i++){
     uniqueNumber(1, 16, 16);
